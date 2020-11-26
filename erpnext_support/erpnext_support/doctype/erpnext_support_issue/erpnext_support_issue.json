@@ -1,0 +1,206 @@
+{
+ "autoname": "format:ESI-{####}",
+ "creation": "2019-04-29 17:05:52.196018",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "sb_00",
+  "frappe_issue_id",
+  "subject",
+  "issue_found_in",
+  "raised_by",
+  "cb_00",
+  "issue_type",
+  "last_sync_on",
+  "status",
+  "sync_count",
+  "service_level_section",
+  "priority",
+  "release",
+  "cb_01",
+  "resolution_by",
+  "sb_01",
+  "description",
+  "feedback",
+  "support_rating",
+  "add_a_comment",
+  "failed_sync_message"
+ ],
+ "fields": [
+  {
+   "fieldname": "sb_00",
+   "fieldtype": "Section Break",
+   "label": "Issue Details"
+  },
+  {
+   "fieldname": "frappe_issue_id",
+   "fieldtype": "Data",
+   "label": "Frappe Issue Id",
+   "read_only": 1
+  },
+  {
+   "bold": 1,
+   "fieldname": "subject",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Subject",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "depends_on": "eval: doc.issue_type === \"How to\"",
+   "fieldname": "issue_found_in",
+   "fieldtype": "Select",
+   "label": "Issue Found In",
+   "options": "\nAccounts\nAsset\nBuying\nCRM\nData Import\nEducation\nHealthcare\nHotels\nHR\nManufacturing\nPermissions\nPOS\nPrint Format\nProjects\nReports\nSelling\nSetup\nStock\nSupport\nWebsite",
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "raised_by",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Raised By",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "cb_00",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "issue_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Issue Type",
+   "options": "\nBilling & Payment\nBug\nCustomization\nError Report\nFeature Request\nHow to\nIntegration\nPerformance\nVersion Upgrade",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "last_sync_on",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "Last Sync On",
+   "read_only": 1
+  },
+  {
+   "default": "Open",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Open\nClosed"
+  },
+  {
+   "default": "0",
+   "fieldname": "sync_count",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Sync Count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "service_level_section",
+   "fieldtype": "Section Break",
+   "label": "Service Level"
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Data",
+   "label": "Priority",
+   "read_only": 1
+  },
+  {
+   "fieldname": "release",
+   "fieldtype": "Data",
+   "label": "Release Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb_01",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "resolution_by",
+   "fieldtype": "Datetime",
+   "label": "Expected Resolution By",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "sb_01",
+   "fieldtype": "Section Break",
+   "label": "Issue Description"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description",
+   "set_only_once": 1
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "eval:doc.support_rating && doc.add_a_comment",
+   "fieldname": "feedback",
+   "fieldtype": "Section Break",
+   "label": "Feedback"
+  },
+  {
+   "description": "5 for Excellent, 0 for Horrible",
+   "fieldname": "support_rating",
+   "fieldtype": "Select",
+   "label": "Support Rating",
+   "options": "\n0\n1\n2\n3\n4\n5",
+   "read_only": 1
+  },
+  {
+   "fieldname": "add_a_comment",
+   "fieldtype": "Text",
+   "label": "Add a comment",
+   "read_only": 1
+  },
+  {
+   "fieldname": "failed_sync_message",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Issue Status Message"
+  }
+ ],
+ "modified": "2020-11-26 09:40:52.525186",
+ "modified_by": "Administrator",
+ "module": "Erpnext Support",
+ "name": "ERPNext Support Issue",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "title_field": "subject",
+ "track_changes": 1,
+ "track_views": 1
+}

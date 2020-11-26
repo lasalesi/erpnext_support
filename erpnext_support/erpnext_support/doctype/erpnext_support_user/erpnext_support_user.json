@@ -1,0 +1,86 @@
+{
+ "creation": "2020-08-24 11:36:28.318578",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "customer",
+  "users",
+  "secret_token",
+  "column_break_2",
+  "domain",
+  "expiry"
+ ],
+ "fields": [
+  {
+   "description": "Customer linked from ERPNext Customer DocType",
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Customer",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "description": "Number of Users allowed under Support Plan",
+   "fieldname": "users",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Users"
+  },
+  {
+   "description": "Token Key which will be used to authenticate Support Users",
+   "fieldname": "secret_token",
+   "fieldtype": "Password",
+   "hidden": 1,
+   "label": "Secret Token"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "description": "Site from which the tickets will be raised. frappe.utils.get_url()",
+   "fieldname": "domain",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Domain"
+  },
+  {
+   "description": "Expiry Date for Support Plan",
+   "fieldname": "expiry",
+   "fieldtype": "Datetime",
+   "label": "Expiry"
+  }
+ ],
+ "modified": "2020-11-26 09:40:43.122975",
+ "modified_by": "Administrator",
+ "module": "Erpnext Support",
+ "name": "ERPNext Support User",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "customer",
+ "track_changes": 1
+}
