@@ -6,18 +6,18 @@
  "field_order": [
   "sb_00",
   "frappe_issue_id",
-  "subject",
-  "issue_found_in",
-  "raised_by",
   "cb_00",
+  "subject",
+  "column_break_5",
   "issue_type",
+  "hidden_fields_section",
+  "priority",
+  "raised_by",
   "last_sync_on",
+  "issue_found_in",
   "status",
   "sync_count",
-  "service_level_section",
-  "priority",
   "release",
-  "cb_01",
   "resolution_by",
   "sb_01",
   "description",
@@ -30,13 +30,18 @@
   {
    "fieldname": "sb_00",
    "fieldtype": "Section Break",
-   "label": "Issue Details"
+   "label": "Ticket Details"
   },
   {
    "fieldname": "frappe_issue_id",
    "fieldtype": "Data",
-   "label": "Frappe Issue Id",
+   "in_list_view": 1,
+   "label": "Frappe Ticket ID",
    "read_only": 1
+  },
+  {
+   "fieldname": "cb_00",
+   "fieldtype": "Column Break"
   },
   {
    "bold": 1,
@@ -49,23 +54,7 @@
    "set_only_once": 1
   },
   {
-   "depends_on": "eval: doc.issue_type === \"How to\"",
-   "fieldname": "issue_found_in",
-   "fieldtype": "Select",
-   "label": "Issue Found In",
-   "options": "\nAccounts\nAsset\nBuying\nCRM\nData Import\nEducation\nHealthcare\nHotels\nHR\nManufacturing\nPermissions\nPOS\nPrint Format\nProjects\nReports\nSelling\nSetup\nStock\nSupport\nWebsite",
-   "set_only_once": 1
-  },
-  {
-   "fieldname": "raised_by",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Raised By",
-   "read_only": 1,
-   "reqd": 1
-  },
-  {
-   "fieldname": "cb_00",
+   "fieldname": "column_break_5",
    "fieldtype": "Column Break"
   },
   {
@@ -73,10 +62,30 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "Issue Type",
-   "options": "\nBilling & Payment\nBug\nCustomization\nError Report\nFeature Request\nHow to\nIntegration\nPerformance\nVersion Upgrade",
+   "label": "Ticket Type",
+   "options": "\nBilling & Payment\nBug\nCustomization\nError Report\nFeature Request\nHow to\nIntegration\nPerformance\nVersion Upgrade\nERPNext Subscription/Renewal",
    "reqd": 1,
    "set_only_once": 1
+  },
+  {
+   "fieldname": "hidden_fields_section",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Hidden Fields"
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Priority",
+   "read_only": 1
+  },
+  {
+   "fieldname": "raised_by",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Raised By",
+   "read_only": 1
   },
   {
    "fieldname": "last_sync_on",
@@ -86,9 +95,18 @@
    "read_only": 1
   },
   {
+   "fieldname": "issue_found_in",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Ticket Found In",
+   "options": "\nAccounts\nAsset\nBuying\nCRM\nData Import\nEducation\nHealthcare\nHotels\nHR\nManufacturing\nPermissions\nPOS\nPrint Format\nProjects\nReports\nSelling\nSetup\nStock\nSupport\nWebsite",
+   "set_only_once": 1
+  },
+  {
    "default": "Open",
    "fieldname": "status",
    "fieldtype": "Select",
+   "hidden": 1,
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Status",
@@ -103,29 +121,16 @@
    "read_only": 1
   },
   {
-   "fieldname": "service_level_section",
-   "fieldtype": "Section Break",
-   "label": "Service Level"
-  },
-  {
-   "fieldname": "priority",
-   "fieldtype": "Data",
-   "label": "Priority",
-   "read_only": 1
-  },
-  {
    "fieldname": "release",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Release Date",
    "read_only": 1
   },
   {
-   "fieldname": "cb_01",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "resolution_by",
    "fieldtype": "Datetime",
+   "hidden": 1,
    "label": "Expected Resolution By",
    "read_only": 1
   },
@@ -133,7 +138,8 @@
    "collapsible": 1,
    "fieldname": "sb_01",
    "fieldtype": "Section Break",
-   "label": "Issue Description"
+   "hidden": 1,
+   "label": "Ticket Description"
   },
   {
    "fieldname": "description",
@@ -169,10 +175,10 @@
    "label": "Issue Status Message"
   }
  ],
- "modified": "2021-08-18 23:17:40.198050",
+ "modified": "2021-08-18 23:17:01.803507",
  "modified_by": "Administrator",
  "module": "ERPNext Support",
- "name": "ERPNext Support Issue",
+ "name": "ERPNext Support Ticket",
  "owner": "Administrator",
  "permissions": [
   {
@@ -201,6 +207,5 @@
  "sort_field": "modified",
  "sort_order": "ASC",
  "title_field": "subject",
- "track_changes": 1,
- "track_views": 1
+ "track_changes": 1
 }
